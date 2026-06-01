@@ -4,14 +4,15 @@
     <ros2_control name="ArmBase" type="system">
         <hardware>
              <plugin>mock_components/GenericSystem</plugin>
+             <param name="calculate_dynamics">true</param> 
         </hardware>
         <joint name="arm_joint1">
-            <command_interface name="velocity" />
+            <command_interface name="position" />
             <state_interface name="position" />
             <state_interface name="velocity" />
         </joint>
         <joint name="arm_joint2">
-            <command_interface name="velocity" />
+            <command_interface name="position" />
             <state_interface name="position" />
             <state_interface name="velocity" />
         </joint>
