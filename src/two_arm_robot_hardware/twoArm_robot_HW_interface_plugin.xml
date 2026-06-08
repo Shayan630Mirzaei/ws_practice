@@ -1,0 +1,9 @@
+<library path="two_arm_robot_hardware">
+    <class name="two_arm_hardware/TwoArmHardwareInterface"
+           type="two_arm_hardware::TwoArmHardwareInterface"
+           base_class_type="hardware_interface::SystemInterface">
+        <description>
+            Plugin of Hardware interface for a two-arm robot with 2 Dynamixel motors
+        </description>
+    </class>
+</library>
