@@ -11,28 +11,28 @@ all controllers from here:  https://github.com/ros-controls/ros2_controllers/tre
 Three main packages are required: 1- description, 2- bring-up, 3-HW interface
 
 robot_description/<br>
-├── launch/
-├── urdf/
-├── rviz/
-├── package.xml
-└── CMakeLists.txt
-
-two_arm_robot_bringup/
-├── launch/
-├── config/
-├── package.xml
-└── CMakeLists.txt
-
-two_arm_robot_hardware/
-├── include/
-│   └── two_arm_robot_hardware/
-│       ├── two_arm_hardware_interface.hpp
-│       └── xl330_driver.hpp
-├── src/
-│   ├── two_arm_hardware_interface.cpp
-├── package.xml
-├── plugin.xml
-└── CMakeLists.txt
+├── launch/<br>
+├── urdf/<br>
+├── rviz/<br>
+├── package.xml<br>
+└── CMakeLists.txt<br>
+<br>
+two_arm_robot_bringup/<br>
+├── launch/<br>
+├── config/<br>
+├── package.xml<br>
+└── CMakeLists.txt<br>
+<br>
+two_arm_robot_hardware/<br>
+├── include/<br>
+│   └── two_arm_robot_hardware/<br>
+│       ├── two_arm_hardware_interface.hpp<br>
+│       └── xl330_driver.hpp<br>
+├── src/<br>
+│   ├── two_arm_hardware_interface.cpp<br>
+├── package.xml<br>
+├── plugin.xml<br>
+└── CMakeLists.txt<br>
 
 
 %% Step 1%% 
