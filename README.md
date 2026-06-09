@@ -1,13 +1,13 @@
-This is a two-arm project with real hardware.
+This is a two-arm project with real hardware.<br>
 Two Dynamixel XL330 series used
-
+<br>
 all controllers from here:  https://github.com/ros-controls/ros2_controllers/tree/jazzy
-
-
-
-%%%%%%%%%%%
+<br>
+<br>
 
 %%%%%%%%%%%
+
+%%%%%%%%%%%<br>
 Three main packages are required: 1- description, 2- bring-up, 3-HW interface
 
 robot_description/<br>
