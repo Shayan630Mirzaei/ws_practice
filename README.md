@@ -10,7 +10,7 @@ all controllers from here:  https://github.com/ros-controls/ros2_controllers/tre
 %%%%%%%%%%%
 Three main packages are required: 1- description, 2- bring-up, 3-HW interface
 
-robot_description/
+robot_description/<br>
 ├── launch/
 ├── urdf/
 ├── rviz/
