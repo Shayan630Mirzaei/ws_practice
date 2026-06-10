@@ -7,6 +7,8 @@ Build custom interface: https://roboticsbackend.com/ros2-create-custom-message/
 <br>
 Common Interfaces: https://github.com/ros2/common_interfaces/tree/jazzy
 <br>
+Ros2 msg type: https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
+<br>
 %%%%%%%%%%%
 
 %%%%%%%%%%%<br>
