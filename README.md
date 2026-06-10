@@ -3,7 +3,6 @@ Two Dynamixel XL330 series used
 <br>
 all controllers from here:  https://github.com/ros-controls/ros2_controllers/tree/jazzy
 <br>
-<br>
 Build custom interface: https://roboticsbackend.com/ros2-create-custom-message/
 <br>
 %%%%%%%%%%%
