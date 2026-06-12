@@ -77,21 +77,23 @@ it includes controller.yaml and config/launch.xml
 
 
 <br>
-%% Step 3 %% <br>
+%%%%%%%%%%%%%%%%%%<br>
+%% Step 3 %%%%%%%% <br>
+%%%%%%%%%%%%%%%%%%<br>
 preparing HW hpp and cpp<br>
 in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 <br>
-0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file
+1. update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file
 <br>
-1- no need to update HW.hpp
+2. no need to update HW.hpp
 <br>
-2- In hpp file:
+3. In hpp file:
 <br>
-                a - update based on folder name
+- a) update based on folder name
                 <br>
-                b- if you update namespace and class name, reflect it in HW_interface.cpp
+- b) if you update namespace and class name, reflect it in HW_interface.cpp
                 <br>
-                c - update actuator ID
+- c) update actuator ID
                 <br>
 <br>
 3- in cpp file:
