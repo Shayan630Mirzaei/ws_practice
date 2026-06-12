@@ -116,7 +116,7 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 5. At the end of cpp file, export the cpp class via plugin 
 <br>
                     
-                                             PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
+                     PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
 
 then build the plugin.xml file, and update other files with this plugin, including:
 
