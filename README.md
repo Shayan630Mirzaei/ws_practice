@@ -76,8 +76,8 @@ it includes controller.yaml and config/launch.xml
 
 
 
-
-%% Step 3 %% 
+<br>
+%% Step 3 %% <br>
 preparing HW hpp and cpp<br>
 in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 
