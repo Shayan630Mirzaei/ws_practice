@@ -118,11 +118,10 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 
 then build the plugin.xml file, and update other files with this plugin, including:
 
-                a- build plugin.xml in HW package
-                   first line of plugin.xnl (<library path="two_arm_robot_hardware">) should match with project name in Cmakelist.txt file (project(two_arm_robot_hardware)). 
-                b- Cmakelist.txt file -->> pluginlib_export_plugin_description_file()
+- a) build plugin.xml in HW package. first line of plugin.xml (<library path="two_arm_robot_hardware">) should match with project name in Cmakelist.txt file (project(two_arm_robot_hardware)) and package name. 
+- b)Cmakelist.txt file -->> pluginlib_export_plugin_description_file()
                    
-                c- arm.Ros2Control.xacro in description package --->>
+- c)arm.Ros2Control.xacro in description package --->>
 
 
 
