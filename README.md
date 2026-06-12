@@ -118,17 +118,13 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
                     
                      PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
 
-then build the plugin.xml file, and update other files with this plugin, including:
+then build the plugin.xml file in HW package, and update other files with this plugin, including:
 
-- a) build plugin.xml in HW package
-                   first line of plugin.xnl (<library path="two_arm_robot_hardware">) should match with project name in Cmakelist.txt file (project(two_arm_robot_hardware)). 
-- b) Cmakelist.txt file -->> pluginlib_export_plugin_description_file()
-                   
+- a)first line of plugin.xml (<library path="two_arm_robot_hardware">) should match with package name and project name in Cmakelist.txt file (project(two_arm_robot_hardware)). 
+- b) Cmakelist.txt file -->> pluginlib_export_plugin_description_file()               
 - c) arm.Ros2Control.xacro in description package --->>
-
-
-
-
+- 
+<br>
 6. connect hardware (otherwise on_init failure) and run 
                 a - colcon build
                 b - source install/setup.bash
