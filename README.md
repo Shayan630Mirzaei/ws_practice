@@ -96,11 +96,11 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 - c) update actuator ID
                 <br>
 <br>
-3- in cpp file:
+4. in cpp file:
 <br>
-                a- depending on controller type, activate, set function should be update based on position or velocit
+- a) depending on controller type, activate, set function should be update based on position or velocit
                 y<br>
-                b- whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package
+- b) whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package
                 <br>
 
                                                   in cpp:   set_state("arm_joint1/position", Pos_1);
@@ -113,33 +113,33 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
                 <br>
 
 
-4- At the end of cpp file, export the cpp class via plugin 
+5. At the end of cpp file, export the cpp class via plugin 
 <br>
                     
                                              PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
 
 then build the plugin.xml file, and update other files with this plugin, including:
 
-                a- build plugin.xml in HW package
+- a) build plugin.xml in HW package
                    first line of plugin.xnl (<library path="two_arm_robot_hardware">) should match with project name in Cmakelist.txt file (project(two_arm_robot_hardware)). 
-                b- Cmakelist.txt file -->> pluginlib_export_plugin_description_file()
+- b) Cmakelist.txt file -->> pluginlib_export_plugin_description_file()
                    
-                c- arm.Ros2Control.xacro in description package --->>
+- c) arm.Ros2Control.xacro in description package --->>
 
 
 
 
-5- connect hardware (otherwise on_init failure) and run 
+6. connect hardware (otherwise on_init failure) and run 
                 a - colcon build
                 b - source install/setup.bash
                 c - ros2 launch my_robot_bringup my_robot.launch.xml
-6- Powershell doesn't share usb ports with wsl. Should do it manually. This causes on_onit and on_configure errors
+7. Powershell doesn't share usb ports with wsl. Should do it manually. This causes on_onit and on_configure errors
 
                a- usbipd list
                b- usbipd attach --wsl --busid 1-12
                c - ls /dev/tty*
 
-7 - send command:
+8. send command:
                a-ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data:[0.0,0.0]}" 
 
 
