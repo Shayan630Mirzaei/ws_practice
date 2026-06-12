@@ -1,25 +1,29 @@
-# Two-Arm ROS2 Control Project (Real Hardware)
+# Two-arm project with real hardware
 
-This project implements a two-arm robotic system using Dynamixel XL330 series motors and ros2_control.
+Two Dynamixel XL330 series used
 
-## References
+all controllers from here:
+https://github.com/ros-controls/ros2_controllers/tree/jazzy
 
-- Controllers (ROS2 Jazzy):
-  https://github.com/ros-controls/ros2_controllers/tree/jazzy
+Build custom interface:
+https://roboticsbackend.com/ros2-create-custom-message/
 
-- Custom Hardware Interface Guide:
-  https://roboticsbackend.com/ros2-create-custom-message/
+Common Interfaces:
+https://github.com/ros2/common_interfaces/tree/jazzy
 
-- Common Interfaces:
-  https://github.com/ros2/common_interfaces/tree/jazzy
-
-- ROS2 Interface Concepts:
-  https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
+Ros2 msg type:
+https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
 
 
-## Project Structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-### Robot Description Package
+
+Three main packages are required:
+1- description  
+2- bring-up  
+3- HW interface  
+
+
 robot_description/
 ├── launch/
 ├── urdf/
@@ -28,7 +32,6 @@ robot_description/
 └── CMakeLists.txt
 
 
-### Bring-up Package
 two_arm_robot_bringup/
 ├── launch/
 ├── config/
@@ -36,51 +39,66 @@ two_arm_robot_bringup/
 └── CMakeLists.txt
 
 
-### Hardware Interface Package
 two_arm_robot_hardware/
 ├── include/
 │   └── two_arm_robot_hardware/
 │       ├── two_arm_hardware_interface.hpp
 │       └── xl330_driver.hpp
 ├── src/
-│   └── two_arm_hardware_interface.cpp
+│   ├── two_arm_hardware_interface.cpp
 ├── package.xml
 ├── plugin.xml
 └── CMakeLists.txt
 
 
-## Step 1 — Robot Description (URDF/XACRO)
-
+%% Step 1 %% Preparing robot description package in URDF package:
+totally 4 files:
 1- common_property.xacro  
 2- robot.xacro  
 3- control.xacro  
 4- urdf.xacro  
 
+
+1- clean up main robot.xacro file (arm.xacro) and test it with rviz  
+
 ros2 launch my_robot_description display.launch.xml  
 
 
-## Step 2 — Bring-up Package
+2- you will have a common_property.xacro file  
 
-1- controller.yaml file  
-   a- select controller from ros2_controllers (jazzy)  
-   https://github.com/ros-controls/ros2_controllers/tree/jazzy  
-   
-   b- from plugin.xml select controller name  
-   c- from parameters.yaml select required parameters  
+3- add the robot.xacro and common_property.xacro files to urdf.xacro file. Later, you will add control.xacro file as well  
 
-2- update launch.xml with yaml file name  
-   ensure controller names match  
+4- write control.xacro file and add it to urdf.xacro  
 
-3- build and run  
 
-colcon build  
-source install/setup.bash  
+points:
+consistent joints name in control.xacro and robot.xacro  
+
+
+%% Step 2 %% preparing bring-up package it includes controller.yaml and config/launch.xml  
+
+
+1- write controller.yaml file:
+a- select the controller from:
+https://github.com/ros-controls/ros2_controllers/tree/jazzy  
+
+b- from plugin.xml file, select controller name, and from parameters.yaml file, select required parameters  
+
+Then update controller.yaml file  
+
+
+2- update config/launch.xml file with yaml file name just built in last step  
+add controllers  
+check names for consistency  
+
+
+3- after colcon build:
+
 ros2 launch my_robot_bringup my_robot.launch.xml  
-
 ros2 run rqt_graph rqt_graph  
 
 
-4- test controller  
+4- find topic sending commands to controller:
 
 ros2 topic list  
 ros2 topic info /arm_joint_controller/commands  
@@ -88,67 +106,77 @@ ros2 interface show std_msgs/msg/Float64MultiArray
 ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data: [0.4, 0.3]}"  
 
 
-## Step 3 — Hardware Interface
+%% Step 3 %% preparing HW hpp and cpp  
 
-0- update package name in package.xml and CMakeLists.txt  
+in includes HW.hpp, HW_interface.hpp, HW_interface.cpp  
 
-1- hpp file  
-a- update namespace based on folder name  
-b- update class name if changed  
-c- update actuator IDs  
 
-2- cpp file  
-a- set position or velocity based on controller type  
-b- ensure joint names match across all files  
+0- update package name (e.g twoArm_robot_hardware) in package.xml and CMakeLists.txt file  
 
-set_state("arm_joint1/position", Pos_1);  
+1- no need to update HW.hpp  
 
-yaml:
+2- in hpp file:  
+a- update based on folder name  
+b- if namespace/class changed, reflect in cpp  
+c- update actuator ID  
+
+
+3- in cpp file:  
+a- depending on controller type, use position or velocity  
+b- set/get joint names must match xacro + bringup + yaml  
+
+in cpp:
+set_state("arm_joint1/position", Pos_1);
+
+in yaml:
 arm_joint_controller:
   ros__parameters:
-    joints: ["arm_joint1", "arm_joint2"]  
+    joints: ["arm_joint1","arm_joint2"]
 
-urdf:
+in arm.xacro:
 <joint name="arm_joint1" type="revolute">
 
 
-3- CMakeLists.txt  
-add_library(...) must include cpp file  
+c- CMakeLists.txt add_library section must be updated  
 
 
-4- plugin export  
+4- at end of cpp file export plugin:
 
-PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)  
-
-
-5- plugin.xml rules  
-- first line must match project name in CMakeLists.txt  
-- must match package name  
-- must be exported in CMakeLists.txt  
+PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
 
 
-6- build and connect hardware  
+then update plugin.xml:
 
-colcon build  
-source install/setup.bash  
-ros2 launch my_robot_bringup my_robot.launch.xml  
+a- first line must match project name in CMakeLists.txt  
+b- must match package name  
+
+CMakeLists.txt:
+pluginlib_export_plugin_description_file(...)
+
+arm.ros2_control.xacro must also include plugin  
 
 
-7- USB WSL connection  
+5- connect hardware (otherwise on_init fails)
+
+a- colcon build  
+b- source install/setup.bash  
+c- ros2 launch my_robot_bringup my_robot.launch.xml  
+
+
+6- USB WSL setup:
 
 usbipd list  
 usbipd attach --wsl --busid 1-12  
 ls /dev/tty*  
 
 
-8- send command  
+7- send command:
 
 ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data:[0.0,0.0]}"  
 
 
-9- debug commands  
+8- checks:
 
 ros2 control list_controllers  
 ros2 control list_hardware_interfaces  
 ros2 control list_hardware_components  
-```
