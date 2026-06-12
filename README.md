@@ -80,17 +80,17 @@ it includes controller.yaml and config/launch.xml
 %% Step 3 %% <br>
 preparing HW hpp and cpp<br>
 in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
-
-0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file
-1- no need to update HW.hpp
-2- In hpp file:
-                a - update based on folder name
-                b- if you update namespace and class name, reflect it in HW_interface.cpp
-                c - update actuator ID
-
-3- in cpp file:
-                a- depending on controller type, activate, set function should be update based on position or velocity
-                b- whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package
+<br>
+0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file<br>
+1- no need to update HW.hpp<br>
+2- In hpp file:<br>
+                a - update based on folder name<br>
+                b- if you update namespace and class name, reflect it in HW_interface.cpp<br>
+                c - update actuator ID<br>
+<br>
+3- in cpp file:<br>
+                a- depending on controller type, activate, set function should be update based on position or velocity<br>
+                b- whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package<br>
 
                                                   in cpp:   set_state("arm_joint1/position", Pos_1);
                                                   in yaml:  arm_joint_controller:
