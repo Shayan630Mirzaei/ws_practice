@@ -81,16 +81,25 @@ it includes controller.yaml and config/launch.xml
 preparing HW hpp and cpp<br>
 in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 <br>
-0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file<br>
-1- no need to update HW.hpp<br>
-2- In hpp file:<br>
-                a - update based on folder name<br>
-                b- if you update namespace and class name, reflect it in HW_interface.cpp<br>
-                c - update actuator ID<br>
+0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file
 <br>
-3- in cpp file:<br>
-                a- depending on controller type, activate, set function should be update based on position or velocity<br>
-                b- whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package<br>
+1- no need to update HW.hpp
+<br>
+2- In hpp file:
+<br>
+                a - update based on folder name
+                <br>
+                b- if you update namespace and class name, reflect it in HW_interface.cpp
+                <br>
+                c - update actuator ID
+                <br>
+<br>
+3- in cpp file:
+<br>
+                a- depending on controller type, activate, set function should be update based on position or velocit
+                y<br>
+                b- whenever using set/get function, joints name, or motor names should be consistent with xacro file from discerption package and bring-up package
+                <br>
 
                                                   in cpp:   set_state("arm_joint1/position", Pos_1);
                                                   in yaml:  arm_joint_controller:
@@ -99,9 +108,11 @@ in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
                                                  
                                                  in arm.xacro: <joint name="arm_joint1" type="revolute">
                 c- Cmakelist.txt file (add_library section) should be updated with cpp file name
+                <br>
 
 
 4- At the end of cpp file, export the cpp class via plugin 
+<br>
                     
                                              PLUGINLIB_EXPORT_CLASS(two_arm_hardware::TwoArmHardwareInterface, hardware_interface::SystemInterface)
 
