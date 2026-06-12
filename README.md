@@ -78,8 +78,8 @@ it includes controller.yaml and config/launch.xml
 
 
 %% Step 3 %% 
-preparing HW hpp and cpp
-in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp
+preparing HW hpp and cpp<br>
+in includes HW.hpp, HW_interface.hpp, and HW_interface.cpp<br>
 
 0- update package name (e.g twoArm_robot_hardware) in package.xml and Cmakelist.txt file
 1- no need to update HW.hpp
