@@ -140,9 +140,9 @@ then build the plugin.xml file in HW package, and update other files with this p
 <br>
 <br>
 8. send command:
-- ros2 topic list
-- ros2 topic info /joints_command
-- ros2 interface show robot_interfaces/msg/JointCurrentPose
+- ros2 topic list<br>
+- ros2 topic info /joints_command<br>
+- ros2 interface show robot_interfaces/msg/JointCurrentPose<br>
 -  ros2 topic pub -1 /joints_command robot_interfaces/msg/JointCurrentPose "{joint_state:[0.5,0.5]}"
 <br>
 <br>
