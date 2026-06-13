@@ -140,8 +140,12 @@ then build the plugin.xml file in HW package, and update other files with this p
 <br>
 <br>
 8. send command:
-               a-ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data:[0.0,0.0]}" 
-
+- ros2 topic list
+- ros2 topic info /joints_command
+- ros2 interface show robot_interfaces/msg/JointCurrentPose
+-  ros2 topic pub -1 /joints_command robot_interfaces/msg/JointCurrentPose "{joint_state:[0.5,0.5]}"
+<br>
+<br>
 
 8- some checking
           
