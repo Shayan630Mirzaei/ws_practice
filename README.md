@@ -125,16 +125,20 @@ then build the plugin.xml file in HW package, and update other files with this p
 - c) arm.Ros2Control.xacro in description package --->>
 - 
 <br>
-6. connect hardware (otherwise on_init failure) and run 
-                a - colcon build
-                b - source install/setup.bash
-                c - ros2 launch my_robot_bringup my_robot.launch.xml
-7. Powershell doesn't share usb ports with wsl. Should do it manually. This causes on_onit and on_configure errors
+
+6. Powershell doesn't share usb ports with wsl. Should do it manually. This causes on_onit and on_configure errors
 
 - a) usbipd list
 - b) usbipd attach --wsl --busid 1-12
 - c) ls /dev/tty*
 
+
+6. connect hardware (otherwise on_init failure) and run 
+- a) colcon build
+- b) source install/setup.bash
+- c) ros2 launch my_robot_bringup my_robot.launch.xml
+<br>
+<br>
 8. send command:
                a-ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data:[0.0,0.0]}" 
 
