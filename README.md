@@ -139,7 +139,7 @@ then build the plugin.xml file in HW package, and update other files with this p
 - c) ros2 launch my_robot_bringup my_robot.launch.xml
 <br>
 <br>
-8. send command:
+8. send command:<br>
 - ros2 topic list<br>
 - ros2 topic info /joints_command<br>
 - ros2 interface show robot_interfaces/msg/JointCurrentPose<br>
