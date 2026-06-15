@@ -1,0 +1,9 @@
+<library path="two_arm_robot_controller_algo">
+    <class name="controller_algo/FirstOrderLowPassFilter"
+           type="controller_algo::FirstOrderLowPassFilter"
+           base_class_type="controller_interface::ControllerInterface">
+        <description>
+            Forward joint commands with a complementary filter
+        </description>
+    </class>
+</library>

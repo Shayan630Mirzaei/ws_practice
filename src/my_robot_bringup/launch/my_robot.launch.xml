@@ -16,7 +16,8 @@
     </node> 
 
     <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster" />
-    <node pkg="controller_manager" exec="spawner" args="arm_joint_controller" />
+    <!-- <node pkg="controller_manager" exec="spawner" args="arm_joint_controller" /> -->        I use my defined lowpassfilter controller instead of forward controller
+    <node pkg="controller_manager" exec="spawner" args="arm_joint_low_pass_filter_controller" />
 
     <node pkg="rviz2" exec="rviz2" output="screen" 
           args="-d $(var rviz_config_path)" />
