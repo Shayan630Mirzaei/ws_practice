@@ -58,10 +58,10 @@ points: consistent joints name in control.xacro and robot.xacro
 
 
 
-%% Step 2 %% 
-preparing bring-up package
+%% Step 2 %%<br> 
+preparing bring-up package<br>
 it includes controller.yaml and config/launch.xml
-
+<br>
 1- write controller.yaml file: 
                           a-select the controller from this website https://github.com/ros-controls/ros2_controllers/tree/jazzy
                           b- From plug_in.xml file, select controller name, and from src/paramters.yaml file, select requred parameters. Then update controller.yaml file
