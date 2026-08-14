@@ -44,8 +44,7 @@ Preparing robot description package
 in URDF package: totally 4 files:1-common_prperty.xacro, 2-robot.xacro, 3-control.xacro, 4-urdf.xacro
 
 1- clean up main robot.xacro file (arm.xacro) file and test it with rviz
-
-ros2 launch my_robot_description display.launch.xml
+                                             ros2 launch my_robot_description display.launch.xml
 <br>
 2- you will have a common_property.xacro file 
 <br>
