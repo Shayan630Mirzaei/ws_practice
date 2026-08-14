@@ -39,8 +39,8 @@ two_arm_robot_hardware/<br>
 └── CMakeLists.txt<br>
 
 
-%% Step 1%% 
-Preparing robot description package
+%% Step 1%%<br> 
+Preparing robot description package<br>
 in URDF package: totally 4 files:1-common_prperty.xacro, 2-robot.xacro, 3-control.xacro, 4-urdf.xacro
 
 1- clean up main robot.xacro file (arm.xacro) file and test it with rviz
