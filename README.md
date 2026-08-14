@@ -48,7 +48,9 @@ in URDF package: totally 4 files:1-common_prperty.xacro, 2-robot.xacro, 3-contro
 ros2 launch my_robot_description display.launch.xml
 
 2- you will have a common_property.xacro file 
+
 3- add the robot.xacro and common_property.xacro files to urdf.xacro file. Later, you will add control.xacro file as well
+
 4- write control.xacro file and add it to urdf.xacro
  
 points: consistent joints name in control.xacro and robot.xacro
