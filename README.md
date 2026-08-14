@@ -11,10 +11,13 @@ Ros2 msg type: https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
 <br>
 %%%%%%%%%%%
 <br>
-Ysefull commands
+Usefull commands
        - ros2 control list_controllers
+       <br>
        - ros2 control list_controller_types
+       <br>
        - ros2 control list_hardware_interfaces
+       <br>
        - ros2 control list_hardware_components
        <br>
 %%%%%%%%%%%<br>
