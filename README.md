@@ -10,7 +10,13 @@ Common Interfaces: https://github.com/ros2/common_interfaces/tree/jazzy
 Ros2 msg type: https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
 <br>
 %%%%%%%%%%%
-
+<br>
+Ysefull commands
+       - ros2 control list_controllers
+       - ros2 control list_controller_types
+       - ros2 control list_hardware_interfaces
+       - ros2 control list_hardware_components
+       <br>
 %%%%%%%%%%%<br>
 Three main packages are required: 1- description, 2- bring-up, 3-HW interface
 
