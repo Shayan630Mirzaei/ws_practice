@@ -11,7 +11,7 @@ Ros2 msg type: https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.html
 <br>
 %%%%%%%%%%%
 <br>
-Usefull commands:<br>
+Usefull commands:
 <br>
        - ros2 control list_controllers
        <br>
