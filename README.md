@@ -72,11 +72,11 @@ it includes controller.yaml and config/launch.xml
                          ros2 launch my_robot_bringup my_robot.launch.xml
                          ros2 run rqt_graph rqt_graph
 <br>
-4- find the topic sends commands to controller, and find it types info, and try an example
-                         ros2 topic list
-                         ros2 topic info /arm_joint_controller/commands
-                         ros2 interface show std_msgs/msg/Float64MultiArray
-                         ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data: [0.4, 0.3]}" 
+4- find the topic sends commands to controller, and find it types info, and try an example<br>
+                         ros2 topic list<br>
+                         ros2 topic info /arm_joint_controller/commands<br>
+                         ros2 interface show std_msgs/msg/Float64MultiArray<br>
+                         ros2 topic pub -1 /arm_joint_controller/commands std_msgs/msg/Float64MultiArray "{data: [0.4, 0.3]}" <br>
 
 
 
