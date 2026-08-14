@@ -65,11 +65,13 @@ it includes controller.yaml and config/launch.xml
 1- write controller.yaml file: 
                           a-select the controller from this website https://github.com/ros-controls/ros2_controllers/tree/jazzy
                           b- From plug_in.xml file, select controller name, and from src/paramters.yaml file, select requred parameters. Then update controller.yaml file
+<br>
 2- update config/launch.xml file with ymal file name just built in last step, added controllers, check names for consistency
-
+<br>
 3- after colcon build, run
                          ros2 launch my_robot_bringup my_robot.launch.xml
                          ros2 run rqt_graph rqt_graph
+<br>
 4- find the topic sends commands to controller, and find it types info, and try an example
                          ros2 topic list
                          ros2 topic info /arm_joint_controller/commands
